@@ -20,7 +20,9 @@ class Flasktask(db.Model):
 
 @app.route('/')
 def hello_world():
-    flasktasks = Flasktask(title="FlaskTask", desc="Add Our FirstTask", date_created=datetime)
+    flasktask = Flasktask(title="FlaskTask", desc="Add Our FirstTask", date_created=datetime)
+    db.session.add(flasktask)
+    db.session.commit()
     return render_template('index.html')
 
 
